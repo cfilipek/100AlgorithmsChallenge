@@ -1,5 +1,60 @@
 function alphabeticShift(inputString: string): string {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
+  let inputShifted = inputString.split('');
+
+  let newString = '';
+
+  for (let i = 0; i < inputShifted.length; i++) {
+    let index = 0;
+
+    if (inputShifted[i] !== 'z') {
+      index = alphabet.indexOf(inputShifted[i]) + 1;
+    }
+
+    newString += alphabet[index];
+  }
+
+  return newString;
+}
+
+function alphabeticShiftSolutionTwo(inputString: string): string {
+  const alphabet: object = {
+    a: 'b',
+    b: 'c',
+    c: 'd',
+    d: 'e',
+    e: 'f',
+    f: 'g',
+    g: 'h',
+    h: 'i',
+    i: 'j',
+    j: 'k',
+    k: 'l',
+    l: 'm',
+    m: 'n',
+    n: 'o',
+    o: 'p',
+    p: 'q',
+    q: 'r',
+    r: 's',
+    s: 't',
+    t: 'u',
+    u: 'v',
+    v: 'w',
+    w: 'y',
+    y: 'z',
+    z: 'a',
+  };
+
+  let inputShifted = inputString.split('');
+
+  for (let i = 0; i < inputShifted.length; i++) {
+    inputShifted[i] = alphabet[inputShifted[i]];
+    console.log(inputShifted[i]);
+  }
+  return inputShifted.join('');
 }
 
 console.log(alphabeticShift('crazy'));
+console.log(alphabeticShiftSolutionTwo('crazy'));
